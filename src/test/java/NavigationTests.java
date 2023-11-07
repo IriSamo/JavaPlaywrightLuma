@@ -2,7 +2,7 @@ import org.testng.annotations.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class Navigation extends BaseTest {
+public class NavigationTests extends BaseTest {
 
     @Test
     void shouldTitle() {
