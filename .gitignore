@@ -4,13 +4,15 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea
 *.iws
 *.iml
 *.ipr
+*.class
+
+local.properties
+debug.log
+*.puml
 
 ### Eclipse ###
 .apt_generated
@@ -36,3 +38,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Allure Report
+allure-results/
+.allure/
+logs/
