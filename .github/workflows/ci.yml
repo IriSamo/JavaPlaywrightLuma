@@ -1,28 +1,29 @@
-name: Playwright Tests
-on:
-  pull_request:
-    branches: [ main ]
+run-test:
+  name: 'Run tests'
+  runs-on: ubuntu-latest
 
-jobs:
-  run-test:
-    name: 'Run tests'
-    runs-on: ubuntu-latest
-    
-    steps:
+  steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install JDK      
+    - name: Install JDK
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '17'
-        
-    - name: Build & Install
-      run: mvn -B install -D skipTests --no-transfer-progress
-      
+
+    - name: Cache maven
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('./pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
     - name: Install Playwright
       run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
-      
+
     - name: Run tests
       run: mvn test
+      env:
+        BROWSER: chromium
