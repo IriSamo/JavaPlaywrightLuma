@@ -23,6 +23,7 @@ public class BaseTest {
     protected void createContextAndPage() {
         context = browser.newContext(
                 new Browser.NewContextOptions()
+                        .setBaseURL("https://magento.softwaretestingboard.com")
         );
 
         page = context.newPage();
