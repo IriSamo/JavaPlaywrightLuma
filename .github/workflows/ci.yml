@@ -34,9 +34,6 @@ jobs:
         run: mvn test
 
       - name: Create test report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
+        uses: sidharthv96/playwright-report-action
         with:
-          name: Unit tests Report
-          path: target/surefire-reports/TEST-*.xml
-          reporter: java-junit
+          github-token: ${{ secrets.GITHUB_TOKEN }}
