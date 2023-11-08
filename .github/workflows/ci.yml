@@ -32,5 +32,11 @@ jobs:
 
       - name: Run tests
         run: mvn test
-        env:
-          BROWSER: chromium
+
+      - name: Create test report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Unit tests Report
+          path: target/surefire-reports/TEST-*.xml
+          reporter: java-junit
