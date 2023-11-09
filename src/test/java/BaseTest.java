@@ -37,8 +37,4 @@ public class BaseTest {
         browser.close();
         playwright.close();
     }
-
-    public static Page getPage() {
-        return page;
-    }
 }
