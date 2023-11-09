@@ -38,4 +38,4 @@ jobs:
         if: always()
         with:
           name: test-results
-          path: extentReport/Report.xml
+          path: extentReport/Report.html
