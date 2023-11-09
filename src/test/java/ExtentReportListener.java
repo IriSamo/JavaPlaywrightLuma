@@ -18,7 +18,7 @@ import java.util.Date;
 public class ExtentReportListener implements ITestListener {
 
     private static final String OUTPUT_FOLDER = "./extentReport/";
-    private static final String FILE_NAME = "Report.html";
+    private static final String FILE_NAME = "Report";
 
     private static ExtentReports extent = init();
     public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
