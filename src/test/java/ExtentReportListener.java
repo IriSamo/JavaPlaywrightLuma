@@ -17,16 +17,16 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public synchronized void onTestSuccess(ITestResult result) {
-        System.out.println("\uD83D\uDE42 " + result.getMethod().getMethodName() + " passed!");
+        System.out.println("✔\uFE0F " + result.getMethod().getMethodName() + " passed!");
     }
 
     @Override
     public synchronized void onTestFailure(ITestResult result) {
-        System.out.println("\uD83D\uDC1E " + result.getMethod().getMethodName() + " failed!");
+        System.out.println("❌ " + result.getMethod().getMethodName() + " failed!");
     }
 
     @Override
     public synchronized void onTestSkipped(ITestResult result) {
-        System.out.println("\uD83D\uDD18 " + result.getMethod().getMethodName() + " skipped!");
+        System.out.println("❔ " + result.getMethod().getMethodName() + " skipped!");
     }
 }

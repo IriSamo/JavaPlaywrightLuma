@@ -1,6 +1,7 @@
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.regex.Pattern;
@@ -16,7 +17,7 @@ public class NavigationTests extends BaseTest {
         assertThat(page).hasTitle("Home Pag");
     }
 
-    @Test
+    @Test(dependsOnMethods = {"shouldTitle"})
     void navigateToWhatsNew() {
         page.navigate("/");
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("What's New")).click();
