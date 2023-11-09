@@ -1,8 +1,6 @@
 import com.microsoft.playwright.*;
 import org.testng.annotations.*;
 
-import java.nio.file.Paths;
-
 
 @Listeners({ExtentReportListener.class})
 public class BaseTest {
