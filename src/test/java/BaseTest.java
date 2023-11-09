@@ -1,15 +1,15 @@
 import com.microsoft.playwright.*;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
+
+import java.nio.file.Paths;
 
 
+@Listeners({ExtentReportListener.class})
 public class BaseTest {
     private Playwright playwright;
     private Browser browser;
     private BrowserContext context;
-    protected Page page;
+    protected static Page page;
 
     @BeforeClass
     protected void launchBrowser() {
@@ -38,5 +38,20 @@ public class BaseTest {
     protected void closeBrowser() {
         browser.close();
         playwright.close();
+    }
+
+    public static Page getPage() {
+        return page;
+    }
+
+    public static String takeScreenshot() {
+        String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+
+        getPage().screenshot(new Page.ScreenshotOptions()
+                .setPath(Paths.get(path))
+                .setFullPage(true)
+        );
+
+        return path;
     }
 }
