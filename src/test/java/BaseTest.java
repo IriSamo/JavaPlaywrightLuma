@@ -43,15 +43,4 @@ public class BaseTest {
     public static Page getPage() {
         return page;
     }
-
-    public static String takeScreenshot() {
-        String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
-
-        getPage().screenshot(new Page.ScreenshotOptions()
-                .setPath(Paths.get(path))
-                .setFullPage(true)
-        );
-
-        return path;
-    }
 }
