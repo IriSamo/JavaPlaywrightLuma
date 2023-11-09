@@ -13,7 +13,7 @@ public class NavigationTests extends BaseTest {
     void shouldTitle() {
         page.navigate("/");
 
-        assertThat(page).hasTitle("Home Page");
+        assertThat(page).hasTitle("Home Pag");
     }
 
     @Test
@@ -37,7 +37,7 @@ public class NavigationTests extends BaseTest {
     @Test
     void navigateToMen() {
         page.navigate("/");
-        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Men")).click();
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Pattern.compile("Men"))).click();
 
         assertThat(page).hasTitle("Men");
         assertThat(page).hasURL("https://magento.softwaretestingboard.com/men.html");
