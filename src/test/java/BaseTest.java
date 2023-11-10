@@ -9,7 +9,7 @@ public class BaseTest {
     private Playwright playwright;
     private Browser browser;
     private BrowserContext context;
-    protected Page page;
+    protected static Page page;
 
     @BeforeClass
     protected void launchBrowser() {
