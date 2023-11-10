@@ -28,7 +28,10 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Publish Test Report
-        uses: starburstdata/action-testng-report@v1
+      - name: Create test report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: Tests Report
+          path: target/surefire-reports/TEST-*.xml
+          reporter: java-junit
