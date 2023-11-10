@@ -33,18 +33,7 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Update existing check report
-        uses: starburstdata/action-testng-report@main
-        if: github.ref == 'refs/heads/main'
+      - name: Publish Test Report
+        uses: scacap/action-surefire-report@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          check_name: build
-          update_existing_check: true
-          report_paths: "**/testng-results.xml"
-      - name: Create new check report
-        uses: starburstdata/action-testng-report@main
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          check_name: new check name
           report_paths: "**/testng-results.xml"
