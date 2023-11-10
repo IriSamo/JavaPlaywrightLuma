@@ -33,5 +33,5 @@ jobs:
         if: success() || failure()
         with:
           name: Unit tests Report
-          path: "**/JavaPlaywrightLuma.xml"
+          path: test-output/index.html
           reporter: java-junit
