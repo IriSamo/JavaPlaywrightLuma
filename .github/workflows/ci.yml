@@ -32,3 +32,11 @@ jobs:
 
       - name: Run tests
         run: mvn test
+
+      - name: Create test report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Tests Report
+          path: test-output/testng-results.xml
+          reporter: java-testng

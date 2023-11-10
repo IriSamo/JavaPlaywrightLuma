@@ -13,7 +13,7 @@ public class NavigationTests extends BaseTest {
     void shouldTitle() {
         page.navigate("/");
 
-        assertThat(page).hasTitle("Home Pag");
+        assertThat(page).hasTitle("Home Page");
     }
 
     @Test(dependsOnMethods = {"shouldTitle"})
