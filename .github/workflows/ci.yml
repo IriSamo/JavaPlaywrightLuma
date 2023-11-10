@@ -34,7 +34,7 @@ jobs:
         run: mvn test
 
       - name: Update existing check report
-        uses: starburstdata/action-testng-report@master
+        uses: starburstdata/action-testng-report@main
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
           update_existing_check: true
           report_paths: "**/testng-results.xml"
       - name: Create new check report
-        uses: starburstdata/action-testng-report@master
+        uses: starburstdata/action-testng-report@main
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
