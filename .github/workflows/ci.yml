@@ -35,6 +35,6 @@ jobs:
 
       - name: Publish Test Report
         if: success() || failure()
-        uses: scacap/action-surefire-report@v1
+        uses: actions/upload-artifact@v3
         with:
-          report_paths: "**/testng-results.xml"
+          path: "**/testng-results.xml"
