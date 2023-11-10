@@ -33,8 +33,10 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Publish Test Report
+      - name: Create test report
+        uses: dorny/test-reporter@v1
         if: success() || failure()
-        uses: actions/upload-artifact@v3
         with:
+          name: Unit tests Report
           path: "**/testng-results.xml"
+          reporter: java-junit
