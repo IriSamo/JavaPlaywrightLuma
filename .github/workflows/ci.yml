@@ -33,9 +33,7 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Create test report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
+      - name: Publish Test Report
+        uses: starburstdata/action-testng-report@v1
         with:
-          name: Tests Report
-          path: test-output/testng-results.xml
+          github_token: ${{ secrets.GITHUB_TOKEN }}
