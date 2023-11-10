@@ -39,4 +39,3 @@ jobs:
         with:
           name: Tests Report
           path: test-output/testng-results.xml
-          reporter: java-testng
