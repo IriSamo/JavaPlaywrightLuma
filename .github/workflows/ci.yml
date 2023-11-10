@@ -28,10 +28,6 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Create test report
-        uses: dorny/test-reporter@v1
+      - name: Publish Test Report
         if: success() || failure()
-        with:
-          name: Test Execution Report
-          path: target/surefire-reports/TEST-*.xml
-          reporter: java-junit
+        uses: scacap/action-surefire-report@v1
