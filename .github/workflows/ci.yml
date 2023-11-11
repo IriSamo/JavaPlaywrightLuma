@@ -1,4 +1,4 @@
-name: CI
+name: Playwright Tests
 
 on:
   pull_request:
@@ -19,18 +19,25 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Cache maven
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('./pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+      - name: Build & Install
+        run: mvn -B install -D skipTests --no-transfer-progress
 
       - name: Install Playwright
         run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
 
       - name: Run tests
         run: mvn test
-        env:
-          BROWSER: chromium
+
+      - name: Create test report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Test Execution Report
+          path: target/surefire-reports/TEST-*.xml
+          reporter: java-junit
+
+      - name: Attach test trace
+        uses: actions/upload-artifact@v3
+        with:
+          name: testTracing
+          path: testTracing
