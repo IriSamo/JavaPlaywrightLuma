@@ -38,6 +38,7 @@ jobs:
 
       - name: Attach test trace
         uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: testTracing
-          path: testTracing/
+          path: ~/testTracing/
