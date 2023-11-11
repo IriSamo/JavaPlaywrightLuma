@@ -41,4 +41,4 @@ jobs:
         if: failure()
         with:
           name: testTracing
-          path: ~/testTracing/
+          path: target/surefire-reports/emailable-report.html
