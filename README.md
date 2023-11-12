@@ -60,7 +60,7 @@ The project is structured as follows:
        mvn test -Dtest=testClasseName#testMethodName     / To run a specific methods within test classes
 
      ```
-- The tests can be executed uses *TestNG* as the test runner. Check [this implementation](./src/test/java/io/github/tahanima/e2e/LoginE2ETest.java) for reference.
+- The tests can be executed uses *TestNG* as the test runner.
        
 #
 ### Reporting
@@ -72,3 +72,6 @@ To see the report, go to the
 ### GitHub Actions
 - Workflow: workflow_dispatch is used in workflow, so the test can be executed triggered from actions ui
 By default, the test will be executed on Ubuntu runner with headless mode.
+
+#
+Prepared by [Irina Samo](https://github.com/IriSamo)
