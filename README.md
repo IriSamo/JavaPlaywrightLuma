@@ -64,7 +64,9 @@ The project is structured as follows:
        
 #
 ### Reporting
-To see the report, go to the target/surefire-reports/index.html or target/surefire-reports/emailable-report.html
+To see the report, go to the 
+- target/surefire-reports/index.html                (OR) 
+- target/surefire-reports/emailable-report.html
 
 #
 ### GitHub Actions
