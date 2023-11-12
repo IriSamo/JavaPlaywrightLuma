@@ -4,10 +4,12 @@
 
 In order to use the framework:
 
-Fork the repository.
-Clone, i.e, download your copy of the repository to your local machine using
+- Fork the repository.
+- Clone, i.e, download your copy of the repository to your local machine using
+```
 gh repo clone IriSamo/JavaPlaywrightLuma
-Import the project in IntelliJ IDEA.
+```
+- Import the project in IntelliJ IDEA.
 
 ## Languages and Frameworks
 
